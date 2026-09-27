@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,63 +9,140 @@
 
   <style>
 
+    /* =========================
+       GENERAL PAGE
+       ========================= */
+
     body {
-@import url('https://googleapis.com');
-      font-family: 'bangers', "Comic Sans MS", Sans serif;
+      font-family: "Comic Sans MS", sans-serif;
       margin: 0;
       padding: 20px;
+      box-sizing: border-box;
     }
 
-    /* Holds the form and image side-by-side */
+    * {
+      box-sizing: border-box;
+    }
+
+
+    /* =========================
+       MAIN CONTAINER
+       ========================= */
+
     .page-container {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       gap: 40px;
+
+      width: 100%;
       max-width: 1400px;
+
       margin: 0 auto;
     }
 
-    /* Form section */
+
+    /* =========================
+       FORM SECTION
+       ========================= */
+
     .form-container {
       flex: 1;
+      min-width: 0;
     }
 
-    /* Image section */
+
+    /* =========================
+       IMAGE SECTION
+       ========================= */
+
     .image-container {
       flex: 1;
+
       display: flex;
       justify-content: center;
       align-items: flex-start;
+
+      min-width: 0;
     }
 
     .right-image {
+      display: block;
+
       width: 100%;
       max-width: 950px;
       height: auto;
+
       object-fit: contain;
+
       border: 2px solid black;
     }
-	  .discount-section {
-  margin-top: 10px;
-}
 
-.discount-section h2 {
-  margin: 0 0 8px 0;
-}
 
-.discount-section h5 {
-  margin: 2px 0;
-  font-size: 14px;
-}
+    /* =========================
+       PRICE TABLE
+       ========================= */
 
-    /* Submit button */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      padding: 6px;
+      text-align: left;
+    }
+
+
+    /* =========================
+       DISCOUNT SECTION
+       ========================= */
+
+    .discount-section {
+      margin-top: 10px;
+    }
+
+    .discount-section h2 {
+      margin: 0 0 8px 0;
+      font-size: 24px;
+    }
+
+    .discount-section h5 {
+      margin: 2px 0;
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       FORM ELEMENTS
+       ========================= */
+
+    label {
+      display: inline-block;
+    }
+
+    select,
+    input {
+      max-width: 100%;
+      padding: 4px;
+    }
+
+
+    /* =========================
+       SUBMIT BUTTON
+       ========================= */
+
     button {
       transition: background-color 1s ease;
+
       color: black;
       background-color: white;
+
       padding: 10px 20px;
+
       border: 5px solid black;
+
       cursor: pointer;
     }
 
@@ -72,143 +150,397 @@
       background-color: cyan;
     }
 
-    /* Makes the page work better on phones */
+
+    /* ==================================================
+       MOBILE VERSION
+       ================================================== */
+
     @media (max-width: 800px) {
-  .page-container {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 10px;
-    width: 100%;
-  }
 
-  .form-container {
-    flex: 1;
-    min-width: 0;
-  }
+      body {
+        padding: 8px;
+      }
 
-  .image-container {
-    flex: 0 0 35%;
-    width: 35%;
-  }
 
-  .right-image {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    object-fit: contain;
-  }
-		<style/>
-		<head/>
+      /*
+        KEEP THE FORM AND IMAGE SIDE-BY-SIDE
+        EVEN ON A PHONE
+      */
 
-  table {
-    width: 100%;
-    font-size: 11px;
-  }
+      .page-container {
+        display: flex;
 
-  th,
-  td {
-    padding: 3px;
-  }
+        flex-direction: row;
 
-  .form-container h2 {
-    font-size: 16px;
-  }
+        align-items: flex-start;
 
-  .form-container h5 {
-    font-size: 10px;
-  }
+        gap: 8px;
 
-  label,
-  select,
-  input,
-  button {
-    font-size: 11px;
-  }
+        width: 100%;
+      }
 
-  input,
-  select {
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-}
 
-    <!-- FORM ON THE LEFT -->
+      /*
+        FORM TAKES ABOUT 65% OF THE SCREEN
+      */
+
+      .form-container {
+        flex: 0 0 65%;
+        width: 65%;
+        min-width: 0;
+      }
+
+
+      /*
+        IMAGE TAKES ABOUT 35% OF THE SCREEN
+      */
+
+      .image-container {
+        flex: 0 0 35%;
+        width: 35%;
+
+        min-width: 0;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: flex-start;
+      }
+
+
+      /*
+        IMAGE STAYS NEXT TO THE TEXT
+      */
+
+      .right-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+
+        object-fit: contain;
+
+        border: 2px solid black;
+      }
+
+
+      /* =========================
+         MOBILE TABLE
+         ========================= */
+
+      table {
+        width: 100%;
+        font-size: 10px;
+      }
+
+      th,
+      td {
+        padding: 3px;
+      }
+
+
+      /* =========================
+         MOBILE DISCOUNT TEXT
+         ========================= */
+
+      .discount-section {
+        margin-top: 8px;
+      }
+
+      .discount-section h2 {
+        font-size: 15px;
+
+        line-height: 1.2;
+
+        margin: 0 0 6px 0;
+      }
+
+      .discount-section h5 {
+        font-size: 9px;
+
+        line-height: 1.15;
+
+        margin: 2px 0;
+      }
+
+
+      /* =========================
+         MOBILE FORM TEXT
+         ========================= */
+
+      label,
+      select,
+      input,
+      button {
+        font-size: 10px;
+      }
+
+
+      select,
+      input {
+        width: 100%;
+        max-width: 100%;
+
+        padding: 3px;
+      }
+
+
+      /* =========================
+         MOBILE BUTTON
+         ========================= */
+
+      button {
+        padding: 7px 10px;
+
+        border-width: 3px;
+      }
+
+
+      /*
+        REDUCE LARGE <br> SPACING
+        ON SMALL SCREENS
+      */
+
+      br {
+        line-height: 0.6;
+      }
+
+    }
+
+
+    /* ==================================================
+       VERY SMALL PHONES
+       ================================================== */
+
+    @media (max-width: 400px) {
+
+      body {
+        padding: 5px;
+      }
+
+      .page-container {
+        gap: 5px;
+      }
+
+
+      /*
+        FORM GETS SLIGHTLY MORE SPACE
+      */
+
+      .form-container {
+        flex: 0 0 67%;
+        width: 67%;
+      }
+
+
+      /*
+        IMAGE REMAINS BESIDE THE FORM
+      */
+
+      .image-container {
+        flex: 0 0 33%;
+        width: 33%;
+      }
+
+
+      table {
+        font-size: 8px;
+      }
+
+      th,
+      td {
+        padding: 2px;
+      }
+
+
+      .discount-section h2 {
+        font-size: 12px;
+      }
+
+      .discount-section h5 {
+        font-size: 8px;
+      }
+
+
+      label,
+      select,
+      input,
+      button {
+        font-size: 8px;
+      }
+
+      button {
+        padding: 5px 7px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- ==========================================
+       MAIN PAGE CONTAINER
+       ========================================== -->
+
+  <div class="page-container">
+
+
+    <!-- ==========================================
+         FORM ON THE LEFT
+         ========================================== -->
+
     <div class="form-container">
 
-      <form action="https://formspree.io/f/xkjnlybg" method="POST">
+      <form
+        action="https://formspree.io/f/xkjnlybg"
+        method="POST"
+      >
+
+
+        <!-- =========================
+             PRICE TABLE
+             ========================= -->
 
         <table border="3">
+
           <tr>
             <th>Job Type</th>
             <th>Price $ per Task</th>
           </tr>
 
           <tr>
-            <td>Full body/ Landscape (3)</td>
-            <td>$8 </td>
+            <td>Full Body / Landscape (3)</td>
+            <td>$8</td>
           </tr>
 
           <tr>
-            <td>Head-Shots(5)</td>
+            <td>Head-Shots (5)</td>
             <td>$15</td>
           </tr>
-	  <tr>
-            <td>Group-Photos(10)</td>
+
+          <tr>
+            <td>Group Photos (10)</td>
             <td>$20</td>
           </tr>
 
         </table>
 
-	<div class="discount-section">
 
-  <h2>
-    Please contact me by phone to confirm a day for your photo session:
-    (252)-499-0867
-  </h2>
+        <!-- =========================
+             DISCOUNT INFORMATION
+             ========================= -->
 
-  <h5>Mary Jane Discount Qualification:</h5>
+        <div class="discount-section">
 
-  <h5>
-    Follow, Like, and Share a post on my Instagram page:
-    <b>@spideys_view</b>
-  </h5>
+          <h2>
+            Please contact me by phone to confirm a day for your photo session:
+            (252)-499-0867
+          </h2>
 
-  <h5>Message me on Instagram when completed!</h5>
+          <h5>
+            Mary Jane Discount Qualification:
+          </h5>
 
-</div>
-<br> <br>
-       
-        <b>
-          <label for="jobType">Choose Photography Service:</label>
-          <select id="jobType" name="jobType" required>
-            <option value="">-- Select a Job --</option>
-            <option value="Full-Body">Full Body</option>
-            <option value="Headshot">Headshots</option>
-	    <option value="Group">Group Photos</option>
+          <h5>
+            Follow, Like, and Share a post on my Instagram page:
+            <b>@spideys_view</b>
+          </h5>
 
-          </select>
-        </b>
+          <h5>
+            Message me on Instagram when completed!
+          </h5>
+
+        </div>
+
 
         <br><br>
 
+
+        <!-- =========================
+             PHOTOGRAPHY SERVICE
+             ========================= -->
+
         <b>
+
+          <label for="jobType">
+            Choose Photography Service:
+          </label>
+
+          <select
+            id="jobType"
+            name="jobType"
+            required
+          >
+
+            <option value="">
+              -- Select a Job --
+            </option>
+
+            <option value="Full-Body">
+              Full Body
+            </option>
+
+            <option value="Headshot">
+              Headshots
+            </option>
+
+            <option value="Group">
+              Group Photos
+            </option>
+
+          </select>
+
+        </b>
+
+
+        <br><br>
+
+
+        <!-- =========================
+             PHOTOGRAPHY LOCATION
+             ========================= -->
+
+        <b>
+
           <label for="serviceTypes">
             Choose Photography Location:
           </label>
 
-          <select id="serviceTypes" name="serviceTypes" required>
-            <option value="">-- Select Service Type --</option>
-            <option value="Come To Me">Come To Me</option>
+          <select
+            id="serviceTypes"
+            name="serviceTypes"
+            required
+          >
+
+            <option value="">
+              -- Select Service Type --
+            </option>
+
+            <option value="Come To Me">
+              Come To Me
+            </option>
+
             <option value="Come To You">
               Come To You
             </option>
+
           </select>
+
         </b>
 
-       
+
         <br><br>
 
+
+        <!-- =========================
+             VENUE ADDRESS
+             ========================= -->
+
         <b>
+
           <label for="address">
             Address of Venue:
           </label>
@@ -219,24 +551,35 @@
             name="address"
             required
           >
+
         </b>
 
 
         <br><br>
 
+
+        <!-- =========================
+             SUBMIT BUTTON
+             ========================= -->
+
         <b>
+
           <button type="submit">
             Submit Form
           </button>
+
         </b>
 
-      </form>
 
+      </form>
 
     </div>
 
 
-    <!-- IMAGE ON THE RIGHT -->
+    <!-- ==========================================
+         IMAGE ON THE RIGHT
+         ========================================== -->
+
     <div class="image-container">
 
       <img
@@ -247,7 +590,10 @@
 
     </div>
 
+
   </div>
 
+
 </body>
+
 </html>
